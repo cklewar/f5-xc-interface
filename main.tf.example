@@ -1,0 +1,46 @@
+variable "project_prefix" {
+  type        = string
+  description = "prefix string put in front of string"
+  default     = "f5xc"
+}
+
+variable "project_suffix" {
+  type        = string
+  description = "prefix string put at the end of string"
+  default     = "01"
+}
+
+variable "f5xc_api_p12_file" {
+  type    = string
+}
+
+variable "f5xc_api_url" {
+  type    = string
+}
+
+variable "f5xc_tenant" {
+  type    = string
+}
+
+variable "f5xc_namespace" {
+  type    = string
+  default = "system"
+}
+
+variable "f5xc_api_token" {
+  type = string
+}
+
+module "interface" {
+  source                   = "./modules/f5xc/interface"
+  f5xc_tenant              = var.f5xc_tenant
+  f5xc_namespace           = var.f5xc_namespace
+  f5xc_api_p12_file        = var.f5xc_api_p12_file
+  f5xc_api_token           = var.f5xc_api_token
+  f5xc_api_url             = var.f5xc_api_url
+  f5xc_interface_name      = format("%s-tunnel-interface-%s", var.project_prefix, var.project_suffix)
+  f5xc_interface_type      = "tunnel_interface"
+  f5xc_interface_static_ip = "192.168.100.1"
+  f5xc_node_name           = "ip-192-168-45-1"
+  f5xc_tunnel_name         = format("%s-tunnel-%s", var.project_prefix, var.project_suffix)
+}
