@@ -6,7 +6,7 @@ terraform {
     hostname     = "app.terraform.io"
 
     workspaces {
-      name = "f5-xc-modules"
+      name = "f5-xc-interface-module"
     }
   }
 
