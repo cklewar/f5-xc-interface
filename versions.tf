@@ -1,6 +1,5 @@
 terraform {
-  required_version = ">= 1.2.7"
-  experiments      = [module_variable_optional_attrs]
+  required_version = ">= 1.3.0"
   cloud {
     organization = "cklewar"
     hostname     = "app.terraform.io"
@@ -11,9 +10,9 @@ terraform {
   }
 
   required_providers {
-    f5xc = {
+    volterra = {
       source  = "volterraedge/volterra"
-      version = ">= 0.11.11"
+      version = ">= 0.11.13"
     }
 
     local = ">= 2.2.3"
