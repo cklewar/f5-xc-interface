@@ -1,4 +1,4 @@
-name: F5XC Interface module
+name: F5XC Interface module v0.11.16
 on: workflow_dispatch
 jobs:
   f5-xc-interface-module-validate:
